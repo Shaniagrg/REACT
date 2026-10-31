@@ -14,13 +14,27 @@ const Header = () => {
         </header>
     )
 }
-const root = createRoot(document.getElementById('root'));
 
 /*
-Why use self closing tag to render?
-    - Right now it's self contained header element we refer to using a self closing tag
-Is it acceptable to write Header component with opening and closing tage like this: 
-root.render(<Header> </Header>)?
-    - Yes if you want to provide more JSX tags as children and is  useful when displayiing nested components
+ create a variable that returns the button and hard coded value
+ - It's not dynamic yet
 */
-root.render(<Header/>)
+const Item = () => {
+    return (
+        <div className='item'>
+            <button className='remove-item'/>
+            <span className='item-name'>Apples</span>
+
+            <div className='quantity'>
+                <span className='qty-label'>QTY</span>
+                <button className='increment'> + </button>
+                <button className='decrement'> - </button>
+                <span className='quantity-amount'> 15 </span>
+            </div>
+        </div>
+    )
+}
+
+const root = createRoot(document.getElementById('root'));
+//render Item
+root.render(<Item/>)
