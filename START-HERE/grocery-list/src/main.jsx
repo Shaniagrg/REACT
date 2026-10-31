@@ -16,8 +16,9 @@ const Header = () => {
 }
 
 /*
- create a variable that returns the button and hard coded value
- - It's not dynamic yet
+Nesting
+    - Create another component Counter and nest inside const Item
+    - Parent component will have one or multiple child components
 */
 const Item = () => {
     return (
@@ -25,15 +26,23 @@ const Item = () => {
             <button className='remove-item'/>
             <span className='item-name'>Apples</span>
 
-            <div className='quantity'>
-                <span className='qty-label'>QTY</span>
-                <button className='increment'> + </button>
-                <button className='decrement'> - </button>
-                <span className='quantity-amount'> 15 </span>
-            </div>
+            <Counter/>
+
         </div>
     )
 }
+
+const Counter = () => {
+    return(
+        <div className='quantity'>
+            <span className='qty-label'>QTY</span>
+            <button className='increment'> + </button>
+            <button className='decrement'> - </button>
+            <span className='quantity-amount'> 15 </span>
+        </div>
+    )
+}
+
 
 const root = createRoot(document.getElementById('root'));
 //render Item
