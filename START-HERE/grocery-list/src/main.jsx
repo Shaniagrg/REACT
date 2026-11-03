@@ -1,5 +1,6 @@
 //Use createRoot API to render our element on screen 
 import { createRoot } from 'react-dom/client';
+import { StrictMode } from 'react';
 
 /*
  Arrow function
@@ -43,6 +44,7 @@ const Counter = () => {
         </div>
     )
 }
+
 // create component that will wrap the entire application and combines all the main components together
 const App = () => {
     return (
@@ -57,4 +59,7 @@ const App = () => {
 
 const root = createRoot(document.getElementById('root'));
 //render App
-root.render(<App/>)
+root.render(
+    <StrictMode>
+        <App/>
+    </StrictMode>)
