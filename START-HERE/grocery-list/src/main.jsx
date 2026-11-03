@@ -26,6 +26,7 @@ const Item = () => {
             <button className='remove-item'/>
             <span className='item-name'>Apples</span>
 
+            {/*Nesting Counter*/}
             <Counter/>
 
         </div>
@@ -42,8 +43,18 @@ const Counter = () => {
         </div>
     )
 }
+// create component that will wrap the entire application and combines all the main components together
+const App = () => {
+    return (
+        <div className='grocery-list'>
+            <Header/>
 
+            {/*Grocery List*/}
+            <Item/>
+        </div>
+    )
+}
 
 const root = createRoot(document.getElementById('root'));
-//render Item
-root.render(<Item/>)
+//render App
+root.render(<App/>)
