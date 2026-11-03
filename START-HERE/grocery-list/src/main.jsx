@@ -49,7 +49,10 @@ const Counter = () => {
 const App = () => {
     return (
         <div className='grocery-list'>
-            <Header/>
+            <Header 
+            title="Grocery List" 
+            itemTotal={1}
+            />
 
             {/*Grocery List*/}
             <Item/>
