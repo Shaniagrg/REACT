@@ -24,26 +24,26 @@ Nesting
     - Create another component Counter and nest inside const Item
     - Parent component will have one or multiple child components
 */
-const Item = () => {
+const Item = (props) => {
     return (
         <div className='item'>
             <button className='remove-item'/>
-            <span className='item-name'>Apples</span>
+            <span className='item-name'>{props.name}</span>
 
             {/*Nesting Counter*/}
-            <Counter/>
+            <Counter quantity={props.quantity}/>
 
         </div>
     )
 }
 
-const Counter = () => {
+const Counter = (props) => {
     return(
         <div className='quantity'>
             <span className='qty-label'>QTY</span>
             <button className='increment'> + </button>
             <button className='decrement'> - </button>
-            <span className='quantity-amount'> 15 </span>
+            <span className='quantity-amount'> {props.quantity} </span>
         </div>
     )
 }
@@ -58,7 +58,10 @@ const App = () => {
             />
 
             {/*Grocery List*/}
-            <Item/>
+            <Item
+            name="Banana"
+            quantity={8}
+            />
         </div>
     )
 }
