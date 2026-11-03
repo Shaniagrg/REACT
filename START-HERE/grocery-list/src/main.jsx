@@ -8,6 +8,7 @@ import { StrictMode } from 'react';
     - use return 
 */
 const Header = (props) => {
+    {/* // NOT allowed yo modify value indise component "prop.title = "My Grocery List" */}
     console.log(props)
     return (
         <header>
