@@ -7,11 +7,13 @@ import { StrictMode } from 'react';
     - store inside variable 
     - use return 
 */
-const Header = () => {
+const Header = (props) => {
+    console.log(props)
     return (
         <header>
-            <h1> Grocery List</h1>
-            <span className='total-items'> Items: 1</span>
+            {/*Use dot notation to access the value and make it dynamic */}
+            <h1> {props.title}</h1>
+            <span className='total-items'> Items: {props.itemTotal} </span>
         </header>
     )
 }
