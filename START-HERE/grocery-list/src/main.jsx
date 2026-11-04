@@ -75,7 +75,7 @@ const App = (props) => {
         <div className='grocery-list'>
             <Header 
             title="Grocery List" 
-            itemTotal={1}
+            itemTotal={props.initialList.length}
             />
 
             {/*Grocery List*/}
