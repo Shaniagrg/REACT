@@ -2,6 +2,26 @@
 import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
 
+//create variable with 4 objects and pass on to the componet App
+const items = [
+    {
+      name: "Apples",
+      quantity: 5
+    },
+    {
+      name: "Bananas",
+      quantity: 7
+    },
+    {
+      name: "Box of Pasta",
+      quantity: 1
+    },
+    {
+      name: "Cookies",
+      quantity: 12
+    }
+  ]
+
 /*
  Arrow function
     - store inside variable 
@@ -49,7 +69,8 @@ const Counter = (props) => {
 }
 
 // create component that will wrap the entire application and combines all the main components together
-const App = () => {
+//pass the prop 
+const App = (props) => {
     return (
         <div className='grocery-list'>
             <Header 
@@ -58,17 +79,20 @@ const App = () => {
             />
 
             {/*Grocery List*/}
-            <Item
-            name="Banana"
-            quantity={8}
-            />
+            {props.initialList.map(item =>
+                <Item
+                name={item.name}
+                quantity={item.quantity}
+                />
+            )}
+            
         </div>
     )
 }
 
 const root = createRoot(document.getElementById('root'));
-//render App
+//render App and pass variable items 
 root.render(
     <StrictMode>
-        <App/>
+        <App initialList={items}/>
     </StrictMode>)
