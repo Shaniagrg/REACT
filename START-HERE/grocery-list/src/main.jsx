@@ -1,6 +1,6 @@
 //Use createRoot API to render our element on screen 
 import { createRoot } from 'react-dom/client';
-import { StrictMode } from 'react';
+import { StrictMode, useState } from 'react';
 
 //create variable with 4 objects and pass on to the componet App
 const items = [
@@ -55,19 +55,36 @@ const Item = (props) => {
             <span className='item-name'>{props.name}</span>
 
             {/*Nesting Counter*/}
-            <Counter quantity={props.quantity}/>
+            <Counter/>
 
         </div>
     )
 }
 
-const Counter = (props) => {
+/*
+useState
+    - first import the useState
+    - create variable and call useState()
+    - make sure its in the top level inside the componet
+
+How it works?
+    - useState(0) returns array with 2 values which is [0, function]
+        - 0: Current state value whcich is 0 cuz we mentioned it 
+        - function: function to update the state
+    - After you receive the values it get assigned to each variable whcih is
+        - quantity = 0
+        - setQuantity = function to update the state
+*/
+const Counter = () => {
+
+    const [quantity, setQuantity] = useState(0)
+
     return(
         <div className='quantity'>
             <span className='qty-label'>QTY</span>
             <button className='increment'> + </button>
             <button className='decrement'> - </button>
-            <span className='quantity-amount'> {props.quantity} </span>
+            <span className='quantity-amount'> {quantity} </span>
         </div>
     )
 }
@@ -86,7 +103,6 @@ const App = (props) => {
             {props.initialList.map(item =>
                 <Item
                 name={item.name}
-                quantity={item.quantity}
                 key={item.id}
                 />
             )}
