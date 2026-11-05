@@ -79,8 +79,15 @@ const Counter = () => {
     const [quantity, setQuantity] = useState(0)
 
     const incrementQuantity = () => {
-        //testing if it prints when we click + button
-        console.log("Hello, Checking if this message prints if I click + button")
+        // CAN'T modify directly like quantity += 1 cuz we can only change a component state using state setter function
+        setQuantity(quantity + 1) 
+    }
+
+    const decrementQuantity = () => {
+        if (quantity > 0){
+            setQuantity(quantity - 1) 
+        }
+
     }
 
     return(
@@ -88,7 +95,7 @@ const Counter = () => {
             <span className='qty-label'>QTY</span>
             {/* We are only sending a refrence cuz we want it to increment onlu when onClick is fired */}
             <button className='increment' onClick={incrementQuantity}> + </button>
-            <button className='decrement'> - </button>
+            <button className='decrement' onClick={incrementQuantity}> - </button>
             <span className='quantity-amount'> {quantity} </span>
         </div>
     )
