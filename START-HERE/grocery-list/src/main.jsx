@@ -95,7 +95,7 @@ const Counter = () => {
             <span className='qty-label'>QTY</span>
             {/* We are only sending a refrence cuz we want it to increment onlu when onClick is fired */}
             <button className='increment' onClick={incrementQuantity}> + </button>
-            <button className='decrement' onClick={incrementQuantity}> - </button>
+            <button className='decrement' onClick={decrementQuantity}> - </button>
             <span className='quantity-amount'> {quantity} </span>
         </div>
     )
