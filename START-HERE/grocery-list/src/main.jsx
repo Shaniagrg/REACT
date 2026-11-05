@@ -76,13 +76,18 @@ How it works?
         - setQuantity = function to update the state
 */
 const Counter = () => {
-
     const [quantity, setQuantity] = useState(0)
+
+    const incrementQuantity = () => {
+        //testing if it prints when we click + button
+        console.log("Hello, Checking if this message prints if I click + button")
+    }
 
     return(
         <div className='quantity'>
             <span className='qty-label'>QTY</span>
-            <button className='increment'> + </button>
+            {/* We are only sending a refrence cuz we want it to increment onlu when onClick is fired */}
+            <button className='increment' onClick={incrementQuantity}> + </button>
             <button className='decrement'> - </button>
             <span className='quantity-amount'> {quantity} </span>
         </div>
